@@ -1,0 +1,32 @@
+.task-index.text-center
+  h1 Yer tasks
+  
+  #tasks
+    - @tasks.each.with_index(1) do |task, index|
+      .taskbox
+        .task-number
+          p= index
+        .task-description
+          p= task.description
+        .task-completed
+          p= task.complete
+        .task-finished-action
+          = link_to task_complete_path(task), method: :post, remote: true, class: "btn btn-warning"
+            - if task.complete
+              i.glyphicon.glyphicon-ok
+            - else
+              i.glyphicon.glyphicon-remove
+  .title
+    h3 Create new task
+    
+  .form-container
+    = form_for :task, url: tasks_path, method: :post, remote: true, class: "task-form" do |f|
+      .form-group
+        label for="description" Description
+        = f.text_field :description, placeholder: "What do you need to do?", required: true, class: "form-control"
+          
+      .form-group
+        = f.submit "CREATE TASK", class: "btn btn-success"
+  
+  .logout
+    = link_to "Logout", session_path(current_user), method: :delete, class: "btn btn-danger"

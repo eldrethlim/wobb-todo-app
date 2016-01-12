@@ -1,0 +1,6 @@
+#flash_messages
+  - flash.each do |key, value|  
+    section#flash_box
+      div class="alert alert-#{key}"
+        button type="button" class="close" data-dismiss="alert" &times;
+        = display_message(value)

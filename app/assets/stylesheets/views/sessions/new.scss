@@ -1,0 +1,22 @@
+.new-session {
+  .title {
+    padding: 0 25px;
+  }
+  .form-container {
+    margin: 10px;
+    padding: 15px;
+    @include flex-parent(wrap);
+    align-items: center;
+    max-width: 550px;
+    margin: 0 auto;
+    border: 1px solid black;
+
+    .registration-form {
+      @include flex-child(1, 100%);
+    }
+  }
+
+  .goback {
+    margin: 25px 0;
+  }
+}

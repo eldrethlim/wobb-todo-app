@@ -1,0 +1,19 @@
+.new-session
+  .title.text-center
+    h1 Log In
+  
+  .form-container
+    = form_for :user, url: sessions_path, method: :post, class: "registration-form" do |f|
+      .form-group
+        label for="email" Email Address
+        = f.text_field :email, placeholder: "Email Address", required: true, class: "form-control"
+      
+      .form-group
+        label for="password" Password
+        = f.password_field :password, placeholder: "Enter Password", required: true, class: "form-control"
+        
+      .form-group
+        = f.submit "LOG IN", class: "btn btn-default"
+
+  .goback.text-center
+    = link_to "Go Back", root_path, class: "btn btn-default"

@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    meta content="width=device-width, initial-scale=1" name="viewport"
+    title Todo
+    = stylesheet_link_tag "application", 
+                          media: "all", 'data-turbolinks-track': true
+    = javascript_include_tag "application", 
+                             'data-turbolinks-track': true
+    = csrf_meta_tags
+
+  body
+  
+    = render "shared/flash_messages"
+    = yield

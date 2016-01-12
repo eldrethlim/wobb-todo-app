@@ -1,0 +1,14 @@
+.index
+  .banner
+    .title.text-center
+      h1.heading Hipster Todo App
+      
+      - if current_user
+        .link
+          = link_to "My Tasks", tasks_path, class: "btn btn-primary"
+      
+      - else 
+        .link
+          = link_to "New User", new_user_path, class: "btn btn-primary"
+        .link
+          = link_to "Log In", new_session_path,  class: "btn btn-primary"

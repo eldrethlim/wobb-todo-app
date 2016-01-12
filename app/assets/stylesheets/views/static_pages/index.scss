@@ -1,0 +1,35 @@
+.index {
+  .banner {
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: 50% 50%;
+    height: 100vh;
+    width: 100%;
+    @include flex-parent(wrap);
+    align-items: center;
+    justify-content: center;
+    background-image: asset-url("banner.jpg");
+
+    .title {
+      @include flex-child(0, 20%);
+      @include flex-parent(wrap);
+      justify-content: space-around;
+
+      .heading {
+        @include flex-child(0, 100%);
+        color: white;
+      }
+
+      .link {
+        @include flex-child(0, 50%);
+
+        .btn {
+          width: 100px;
+        }
+      }
+    }
+  }
+}
