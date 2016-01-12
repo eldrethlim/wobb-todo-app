@@ -4,22 +4,32 @@ class API::V1::TasksController < API::BaseController
   def index
     tasks = current_api_user.tasks.order("created_at ASC")
     render(
-      json: tasks, each_serializer: API::V1::TasksSerializer, status: 200
+      json: tasks, each_serializer: API::V1::TaskSerializer, status: 200
     )
   end
 
   def create
-    task = current_api_user.tasks.build(task_params)
+    task = current_api_user.tasks.create(task_params)
 
     if task.persisted?
       render(
-        json: task, serializer: API::V1::TasksSerializer, status: 200
+        json: task, serializer: API::V1::TaskSerializer, status: 200
       )
     else
       render(
         json: { message: "Error creating task." }, status: 422
       )
     end
+  end
+
+  def complete
+    task = Task.find_by(id: params[:task_id])
+    task.update(complete: !task.complete)
+    render(
+      json: task, serializer: API::V1::TaskSerializer,
+            meta: { message: "Task #{status(task)}" },
+            status: 200
+    )
   end
 
   private
