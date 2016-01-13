@@ -22,5 +22,11 @@ module Todo
 
     config.autoload_paths += %W(#{config.root}/app)
     config.active_record.raise_in_transactional_callbacks = true
+    config.middleware.insert_before 0, "Rack::Cors" do
+      allow do
+        origins '*'
+        resource '*', headers: :any, methods: [:get, :put, :delete, :post, :options]
+      end
+    end
   end
 end

@@ -17,6 +17,7 @@ gem 'bootstrap-sass', '~> 3.3.3'
 gem 'slim-rails'
 gem 'puma'
 gem 'figaro'
+gem 'rack-cors', :require => 'rack/cors'
 
 group :development, :test do
   gem 'pry-rails'
