@@ -22,8 +22,8 @@ describe API::V1::TasksController do
 
       expect(response.status).to eql(200)
       expect(data["tasks"].count).to eql(2)
-      expect(data["tasks"][0]["description"]).to eql(task_one.description)
-      expect(data["tasks"][1]["description"]).to eql(task_one.description)
+      expect(data["tasks"][0]["id"]).to eql(task_one.id)
+      expect(data["tasks"][1]["id"]).to eql(task_two.id)
     end
   end
 

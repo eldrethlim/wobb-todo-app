@@ -15,10 +15,4 @@ class API::V1::SessionsController < API::BaseController
       )
     end
   end
-
-  private
-
-  def user_params
-    params.require(:user).permit(:email, :password)
-  end
 end
