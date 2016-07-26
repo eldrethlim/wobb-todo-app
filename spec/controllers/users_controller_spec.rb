@@ -12,7 +12,7 @@ describe UsersController do
   describe "create user" do
     it "should create user" do
       params = { user: { first_name: "foo", last_name: "bar", email: "user@gmail.com", password: "password", password_confirmation: "password" }}
-      post :create, params
+      post :create, params: params
 
       user = User.first
 
