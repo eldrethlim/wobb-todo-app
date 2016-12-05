@@ -18,6 +18,7 @@ gem 'slim-rails'
 gem 'puma'
 gem 'figaro'
 gem 'rack-cors', require: 'rack/cors'
+gem "react_on_rails", "~> 6"
 
 group :development, :test do
   gem 'pry-rails'
